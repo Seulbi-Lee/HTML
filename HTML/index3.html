@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My webpage</title>
+    <style>
+      body{
+        padding-bottom: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <audio controls>
+      <source type="audio/mp3" src="../12 600_U11_4.mp3">
+    </audio> -->
+
+    <!--?autoplay=1&mute=1 자동재생 설정-->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/YQpe7D8oflg?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+
+      <form action="">
+        <p>
+          <label for="FirstName">FirstName</label>
+          <input type="text" id="FirstName">
+        </p>
+
+        <p>
+          <input type="checkbox" id="html1" name="html" value="HTML">
+          <label for="html1">HTML</label>
+        </p>
+        <p>
+          <input type="checkbox" id="html2" name="html" value="CSS">
+          <label for="html2">CSS</label>
+        </p>
+        <p>
+          <input type="checkbox" id="html3" name="html" value="JS">
+          <label for="html3">JS</label>
+        </p>
+
+        <p>
+          <input type="radio" id="radio1" name="html2" value="HTML">
+          <label for="radio1">HTML</label>
+        </p>
+        <p>
+          <input type="radio" id="radio2" name="html2" value="CSS">
+          <label for="radio2">CSS</label>
+        </p>
+        <p>
+          <input type="radio" id="radio3" name="html2" value="JS">
+          <label for="radio3">JS</label>
+        </p>
+
+        <p>
+          <input type="button" value="OK" onclick="alert('You have click the button')">
+        </p>
+
+        <p>
+          <input type="color" id="color1" name="color" value="#e66465">
+          <label for="color1">Select Color</label>
+        </p>
+
+        <p>
+          <input type="date" id="birthday" name="bd1" value="">
+          <label for="bd1">Select birthday</label>
+        </p>
+
+        <p>
+          <input type="date" id="date1" name="mindate" min="2018-12-12">
+          <label for="bd1">Min date</label>
+        </p>
+
+        <p>
+          <input type="date" id="date2" name="maxdate" max="2023-12-12">
+          <label for="bd2">Max date</label>
+        </p>
+
+        <p>
+          <input type="datetime-local" id="date3" name="datelocal">
+          <label for="bd3">datetime local</label>
+        </p>
+
+        <p>
+          <input type="email" id="email" name="email">
+          <label for="email">email</label>
+        </p>
+
+        <p>
+          <label for="">image</label>
+          <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4bsOW0J09JQ492J6VLkyXMQGhBKuJo1Rg1RreI8SNBg&s" alt="image description">
+        </p>
+
+        <p>
+          <label for="file">file</label>
+          <input type="file" id="file" name="fileInfo">
+        </p>
+
+        <p>
+          <label for="month">birthdayMonth</label>
+          <input type="month" id="month" name="birthdayMonth" value="Febuary">
+        </p>
+
+        <p>
+          <label for="num">number</label>
+          <input type="number" id="num" name="no1" min="1" max="5">
+        </p>
+
+        <p>
+          <label for="search">search</label>
+          <input type="search" id="search" name="search">
+        </p>
+
+        <p>
+          <label for="phonenum">phonenum</label>
+          <input type="tel" id="phonenum" name="mobilenum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" maxlength="12">
+        </p>
+
+        <p>
+          <label for="Name">Required Name</label>
+          <input type="text" id="Name" name="required" placeholder="Required" required>
+        </p>
+
+        <p>
+          <label for="Readonly">Read only Name</label>
+          <input type="text" id="Readonly" name="Readonly" value="John" Readonly>
+        </p>
+
+        <p>
+          <label for="disabled">disabled Name</label>
+          <input type="text" id="disabled" name="disabled" value="John" disabled>
+        </p>
+
+        <p>
+          <label for="autofocus">autofocuss Name</label>
+          <input type="text" id="autofocus" name="autofocus" value="" autofocus>
+        </p>
+
+        <p>
+          <label for="dropdown">dropdown</label>
+          <input list="list" id="dropdown" name="dropdown list">
+
+          <datalist id="list">
+            <option value="BMW">
+            <option value="Mercedes">
+          </datalist>
+        </p>
+      </form>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My webpage</title>
+    <style>
+      table, tr, td, th {
+        border-collapse: collapse;
+      }
+      table {
+        width: 100%;
+        /* border-spacing: 50px; */
+        border: 2px solid black;
+        margin-bottom: 50px;
+      }
+      tr:nth-child(even) {
+        /* background-color: skyblue; */
+      }
+      td, th {
+        border: 2px dotted black;
+        padding-left: 10px;
+        /* text-align: center; */
+        /* width: calc(100%/3); */
+        /* padding: 10px; */
+      }
+      th {
+        /* background-color: gray; */
+        /* color: #fff; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="background-color: rgb(255, 79, 101); color:hsla(9, 100%, 40%, 0.5);">Hello word</h1>
+    <h1 style="border: 6px solid blue;">Hello word</h1>
+    <p>This is H <sub>2</sub> O</p>
+    <p>The formula is e <sup>2</sup></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Name</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td>X</td>
+          <td>M</td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>Y</td>
+          <td>N</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>Z</td>
+          <td>O</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <tr>
+        <th>FirstName</th>
+        <td>A</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <th>LastName</th>
+        <td>X</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <th>Country</th>
+        <td>M</td>
+        <td>N</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th rowspan="2">July</th>
+        <td>Rent</td>
+      </tr>
+      <tr>
+        <td>Grocery</td>
+      </tr>
+    </table>
+
+    <table>
+      <colgroup>
+        <col style="background-color: skyblue;">
+        <col style="background-color: skyblue;">
+        <col>
+      </colgroup>
+      <tr>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+    </table>
+
+    <!--order list-->
+    <ol>
+      <li>Rent</li>
+      <li>Grocery</li>
+      <li>Phone</li>
+      <li>Entertainment</li>
+      <li>etc</li>
+    </ol>
+
+    <!--unorder list-->
+    <ul>
+      <li>Rent</li>
+      <li>Grocery</li>
+      <li>Phone</li>
+      <li>Entertainment</li>
+      <li>etc</li>
+    </ul>
+
+    <!--description lise-->
+    <dl>
+      <!--description title-->
+      <dt>Coffee</dt>
+      <!--description data-->
+      <dd>Black Hot drink</dd>
+      <!--description title-->
+      <dt>Milk</dt>
+      <!--description data-->
+      <dd>Latte</dd>
+    </dl>
+  </body>
+</html>
