@@ -1,0 +1,62 @@
+html, section, div, p, span, i, b, h1, h2, h3, a {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #111;
+  line-height: 1.2;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a:hover, a:active, a:link, a:visited {
+  color: #111;
+  text-decoration: none;
+}
+
+h1{
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+section{
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto 0;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.img-box{
+  position: relative;
+  width: calc((100% - 30px)/ 3);
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+.gallery a{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+}
+
+.gallery a:hover img{
+  opacity: .8;
+}
+
+.gallery a img{
+  width: 100%;
+}
+
+.desc{
+  padding: .5rem 0;
+  font-weight: bold;
+}
+
