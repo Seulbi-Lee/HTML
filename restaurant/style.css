@@ -1,0 +1,220 @@
+html, body, section, div, p, span, i, b, h1, h2, h3, input {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #111;
+  line-height: 1.2;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a, a:hover, a:active, a:link, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+ul, li, ol, li, dl, dd, dt{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+header{
+  width:calc(100% - 40px);
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+}
+header .top {
+  display: flex;
+  justify-content: space-between;
+}
+header .logo a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+header .logo-img{
+  height: 40px;
+}
+header .logo-txt{
+  line-height: 40px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+header .util{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .util li + li{
+  margin-left: 10px;
+}
+header .util li a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+header .util li a:hover {
+  background-color: #eee;
+}
+header .util li:last-of-type a {
+  background-color: #111;
+  color: #fff;
+}
+/* nav */
+nav{
+  margin-top: 30px;
+}
+nav ul{
+  display: flex;
+  justify-content: space-between;
+}
+nav ul li{
+  flex: 1 1 0;
+}
+nav ul li + li{
+  margin-left: 10px
+}
+nav ul li a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px 16px;
+  border: 1px solid #111;
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+nav ul li a:hover{
+  background-color: #111;
+  color: #fff;
+}
+
+/* footer */
+footer{
+  background-color: #faf1ed;
+}
+footer .foot-wrap{
+  display: flex;
+  justify-content: space-between;
+  width:calc(100% - 40px);
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 30px 20px 40px;
+}
+footer .logo-img img{
+  height: 30px;
+}
+footer .foot-lnk{
+  display: flex;
+  justify-content: flex-start;
+}
+footer .foot-lnk ul{
+  margin-left: 40px;
+}
+footer .foot-lnk ul li{
+  padding: 5px 0;
+  font-size: 14px;
+  text-align: left;
+  color: #444;
+}
+footer .foot-lnk ul li a:hover{
+  border-bottom: 1px solid #444;
+}
+.connect dt{
+  color: #999;
+  font-weight: bold;
+}
+.connect dd{
+  margin-top: 26px;
+}
+.connect dd a + a{
+  margin-left: 10px;        
+}
+.connect .con-icon{
+  width: 26px;
+  color: #444;
+}
+/* main */
+article{
+  width:calc(100% - 40px);
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+  min-height: 500px;
+}
+/* search */
+.search-area{
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+}
+.search-area img{
+  width: 100%;
+}
+.search-wrap{
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 90%;
+  padding: 10px 20px;
+  border-radius: 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+}
+.search-wrap .search-inp{
+  padding: 5px 10px;
+  flex: 1 1 0;
+  border: 0;
+}
+.search-wrap .search-btn{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+/* contents */
+
+.menu-container b {
+  font-size: 18px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.menu-container p {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+.menu-container img {
+  width: 100%;
+  height: 200px;
+}
+.menu-container .heading {
+  margin-top: 50px;
+  text-align: center;
+}
+.menu-container .heading h1{
+  font-size: 2rem;
+}
+.menu-container .food-container {
+  margin-top: 20px;
+  display: flex;
+}
+.menu-container .child {
+  flex: 2;
+  margin: 15px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
