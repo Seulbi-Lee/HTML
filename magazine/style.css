@@ -1,0 +1,157 @@
+html, body, section, div, p, span, i, b, h1, h2, h3, input {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #111;
+  line-height: 1.2;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a, a:hover, a:active, a:link, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+span{
+  font-size: inherit;
+  color: inherit;
+}
+img{
+  width: 100%;
+}
+ul, li, ol, li, dl, dd, dt{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.titletext{
+  font-size: 120px;
+  letter-spacing: 1rem;
+  font-weight: bold;
+  color: #5EFFE8;
+  padding-top: 20px;
+}
+.date{
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  color: #fff;
+  opacity: .7;
+}
+.year{
+  font-size: 250px;
+  text-align: right;
+  position: absolute;
+  margin-top: 150px;
+  top: 30%;
+  left: 20px;
+}
+.year p{
+  text-align: left;
+  font-size: 60px;
+  color: white;
+}
+.year p span{
+  font-size: 90px;
+}
+.hername{
+  font-size: 50px;
+  margin-top: 250px;
+  position: absolute;
+  width: 100%;
+  bottom: 15%;
+  right: 20px;
+}
+.hername p{
+  text-align: right;
+  font-size: 80px;
+  color: rgb(252 240 178);
+  line-height: 0;
+}
+.compl{
+  width: 100%;
+  font-size: 50px;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: italic ;
+
+}
+.compl p{
+  color: #fff;
+  font-size: 20px;
+}
+.subtext{
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  font-style: italic;
+  opacity: .8;
+}
+article{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.parallax{
+  z-index: 0;
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background-image: url('https://www.shefinds.com/files/2022/11/Gisele-Bundchen-2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+  background-size: contain;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+}
+.red{
+  font-size: inherit;
+  color: #5EFFE8;;
+}
+.parallax::before{
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10,10,10,0.1);
+  z-index: -1;
+}
+.back-wrap{
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  padding-top:30px;
+  box-shadow: 1px 5px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+.back-img{
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url('https://walkoffame.com/wp-content/uploads/2020/04/jake-blucker-8LlJNFLTEm0-unsplash_2_x630.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.address{
+  margin-top: 75px;
+}
+.bar-code{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 250px;
+}
