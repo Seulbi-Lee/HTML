@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webpage</title>
+    <link rel="stylesheet" href="../css/style8.css">
+  </head>
+  <script>
+    function myfunction() {
+      let num1 = document.getElementById('num1').value
+
+      for(var i = 0; i < num1; i++){
+        document.write(num1, num1+1)
+      }
+    }
+  </script>
+  <body>
+    <section>
+      <form action="">
+        <p>
+          <label for="num1">Number1</label>
+          <input type="number" name="number" id="num1">
+        </p>
+        <p>
+          <button type="button" onclick="myfunction()">OK</button>
+        </p>
+      </form>
+    </section>
+  </body>
+</html>

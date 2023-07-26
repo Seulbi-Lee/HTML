@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webpage</title>
+    <link rel="stylesheet" href="../css/style8.css">
+    <script>
+      function myfunction(){
+        const fName = document.getElementById('firstName').value;
+        const lName = document.getElementById('lastName').value;
+        document.write(fName);
+        document.write(lName);
+      }
+    </script>
+  </head>
+  <body>
+    <section>
+      <form action="">
+        <p>
+          <label for="firstName">frist name</label>
+          <input type="text" name="name" id="firstName">
+        </p>
+        <p>
+          <label for="lastName">last name</label>
+          <input type="text" name="name" id="lastName">
+        </p>
+        <p>
+          <button type="submit" onclick="myfunction()">submit</button>
+        </p>
+      </form>
+    </section>
+  </body>
+</html>
