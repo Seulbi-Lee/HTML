@@ -7,22 +7,17 @@
   </head>
   <script>
     function myfunction() {
-      let num1 = document.getElementById('num1').value
-
-      for(var i = 0; i < num1; i++){
-        document.write('*')
-      }
+      document.getElementById('p1').innerHTML = Date();
     }
   </script>
   <body>
     <section>
       <form action="">
-        <p>
-          <label for="num1">Number1</label>
-          <input type="number" name="number" id="num1">
+        <p id="p1">
+          Hi, from Vancouver
         </p>
         <p>
-          <button type="button" onclick="myfunction()">OK</button>
+          <button type="button" onclick="myfunction()">Click Me</button>
         </p>
       </form>
     </section>

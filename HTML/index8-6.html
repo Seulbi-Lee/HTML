@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webpage</title>
+    <link rel="stylesheet" href="../css/style8.css">
+  </head>
+  <script>
+    function myfunction() {
+      let item1 = +document.querySelector('#item1Num').value
+      let item2 = +document.querySelector('#item2Num').value
+      let cost1 = +document.querySelector('#item1Cost').value
+      let cost2 = +document.querySelector('#item2Cost').value
+
+      let result = (item1 * cost1) + (item2 * cost2)
+
+      document.querySelector('#totalPrice').value = result;
+    }
+  </script>
+  <body>
+    <h1>Payment</h1>
+    <section>
+      <form action="">
+        <p>
+          <label for="item1Num">Item1</label>
+          <input type="number" name="item1" id="item1Num">
+          <label for="item1Cost">$</label>
+          <input type="number" name="item1" id="item1Cost">
+        </p>
+        <p>
+          <label for="item2Num">Item2</label>
+          <input type="number" name="item2" id="item2Num">
+          <label for="item2Cost">$</label>
+          <input type="number" name="item2" id="item2Cost">
+        </p>
+        <p>
+          <button type="button" onclick="myfunction()">Total Price</button>
+        </p>
+        <p>
+          <label for="">Total Price</label>
+          <input type="number" name="Total" id="totalPrice" readonly>
+        </p>
+      </form>
+    </section>
+  </body>
+</html>
