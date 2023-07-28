@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webpage</title>
+    <link rel="stylesheet" href="../css/style8.css">
+    <script>
+      function myfunction() {
+        document.getElementById('txt1').value = document.URL;
+      }
+
+      var resulttemp;
+      function myfunction2() {
+        var celciustemp = document.getElementById('txt2').value; // 25 degree celcius
+        console.log(celciustemp)
+        resulttemp = (celciustemp * 9/5) + 32;
+
+        document.write(resulttemp);
+      }
+
+      function myfunction3() {
+        var num1 = document.getElementById('txt3').value;
+
+        for (let i = 0; i <= 10; i++) {
+          var result = num1 * i;
+          document.write(num1 + ' * ' + i + ' = ' + result + '<br>')
+        }
+      }
+
+      function myfunction4() {
+        var num1 = document.getElementById('txt4').value;
+        var isPrime = true;
+
+        for (let i = 2; i < num1; i++) {
+          if(num1 % i == 0) {
+            isPrime = false;
+            break;
+          }
+        }
+        if(isPrime == true) {
+          document.write("It is a Prime Number")
+        }else{
+          document.write("It is not a Prime Number")
+        }
+      }
+
+      function myfunction5() {
+        var a = 0;
+        var b = 0;
+        var c = 0;
+
+        a = document.getElementById('txt5-1').value;
+        b = document.getElementById('txt5-2').value;
+
+        c = a;
+        a = b;
+        b = c;
+
+        document.write('The new value of Number1 is ' + a + '<br>' + ' The new value of number 2 is ' + b)
+      }
+
+      function myfunction6() {
+        let a = +document.getElementById('txt6-1').value;
+        let b = +document.getElementById('txt6-2').value;
+
+        if(a === b) {
+          document.write('Both the numbers are equal')
+        }else{
+          document.write('Both the numbers are not equal')
+        }
+      }
+
+      function myfunction7() {
+        let a = +document.getElementById('txt7-1').value;
+        let b = +document.getElementById('txt7-2').value;
+
+        for(let i = a + 3; i <= b; i += 3){
+          // console.log(i)
+          document.write(i)
+        }
+      }
+
+      function myfunction8() {
+        let a = +document.getElementById('txt8').value;
+
+        if(a == 0) {
+          document.write('Enter some value in the Year field')
+        }
+
+        if(a % 4 === 0 && a % 100 !== 0 || a % 400 === 0) {
+          console.log('It is a Leap Year')
+        }else {
+          console.log('It is not a Leap Year')
+        }
+      }
+
+      function myfunction9() {
+        let a = +document.getElementById('txt9-1').value
+        let b = +document.getElementById('txt9-2').value
+
+        console.log(a * 2 + b *2)
+      }
+
+      function myfunction10() {
+        let a = +document.getElementById('txt10').value
+
+        for (let i = 1; i <= a; i++) {
+          for (let j = 1; j <= i; j++){
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+      }
+
+      function myfunction11() {
+        let a = +document.getElementById('txt11').value
+
+        for (let i = 1; i <= a; i++) {
+          for (let j = 1; j <= i; j++){
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+
+        for (let i = a -1; i >= 1; i--) {
+          for (let j = i; j >= 1; j--){
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+      }
+
+      function myfunction12() {
+        let a = document.getElementById('txt12').value
+        let len = a.length
+
+        for (let i = len - 1; i >= 0; i--) {
+          document.write(a[i])
+        }
+      }
+
+      // function myfunction13() {
+      //   let a = [...document.getElementById('txt13').value].join('').toString()
+      //   let rev = [...a].reverse().join('').toString()
+
+      //   console.log(a, rev)
+
+      //   if(a === rev) {
+      //     document.write('true')
+      //   }else {
+      //     document.write('false')
+      //   }
+      // }
+
+      function myfunction13() {
+        let rem, temp, final = 0
+        let number = document.getElementById('txt13').value
+
+        temp = number   // 1221
+
+        while(number > 0) {
+          rem = number % 10               // 1
+          number = parseInt(number / 10)  // 12
+          final = final * 10 +rem;        // 122
+          console.log(final)              // 1221
+        }
+
+        if(number === temp) {
+          document.write('true')
+        }else {
+          document.write('false')
+        }
+      }
+
+</script>
+  </head>
+  <body>
+    <section>
+      <form action="">
+        <label for="">Screen URL is</label>
+        <input type="text" id="txt1" name="txturl1">
+        <button type="button" id="btn1" onclick="myfunction()">Submit</button>
+      </form>
+
+      <form action="">
+        <label for="">Celcius Temperature</label>
+        <input type="number" id="txt2" name="txt2">
+        <button type="button" id="btn2" onclick="myfunction2()">Submit</button>
+      </form>
+
+      <form action="">
+        <label for="">Enter a Number</label>
+        <input type="number" id="txt3" name="txt3">
+        <button type="button" id="btn3" onclick="myfunction3()">Submit</button>
+      </form>
+
+      <form action="">
+        <label for="">Enter a Number</label>
+        <input type="number" id="txt4" name="txt4">
+        <button type="button" id="btn4" onclick="myfunction4()">Submit</button>
+      </form>
+
+      <form action="">
+        <label for="">Enter Number 1</label>
+        <input type="number" id="txt5-1" name="txt5">
+        <label for="">Enter Number 2</label>
+        <input type="number" id="txt5-2" name="txt5">
+        <button type="button" id="btn5" onclick="myfunction5()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter Number 1</label>
+        <input type="number" id="txt6-1" name="txt6">
+        <label for="">Enter Number 2</label>
+        <input type="number" id="txt6-2" name="txt6">
+        <button type="button" id="btn6" onclick="myfunction6()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter Number 1</label>
+        <input type="number" id="txt7-1" name="txt7">
+        <label for="">Enter Number 2</label>
+        <input type="number" id="txt7-2" name="txt7">
+        <button type="button" id="btn7" onclick="myfunction7()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter a year</label>
+        <input type="number" id="txt8" name="txt8">
+        <button type="button" id="btn8" onclick="myfunction8()">Submit</button>
+      </form>
+
+      <form action="">
+        <label for="">Enter Length</label>
+        <input type="number" id="txt9-1" name="txt9">
+        <label for="">Enter Width</label>
+        <input type="number" id="txt9-2" name="txt9">
+        <button type="button" id="btn9" onclick="myfunction9()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter a Number</label>
+        <input type="number" id="txt10" name="txt10">
+        <button type="button" id="btn10" onclick="myfunction10()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter a Number</label>
+        <input type="number" id="txt11" name="txt11">
+        <button type="button" id="btn11" onclick="myfunction11()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Enter first name</label>
+        <input type="text" id="txt12" name="txt12">
+        <button type="button" id="btn12" onclick="myfunction12()">Submit</button>
+      </form>
+      
+      <form action="">
+        <label for="">Palindrome Number</label>
+        <input type="number" id="txt13" name="txt13">
+        <button type="button" id="btn13" onclick="myfunction13()">Submit</button>
+      </form>
+
+    </section>
+  </body>
+</html>
