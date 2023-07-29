@@ -62,8 +62,17 @@
         console.log('password is ', newPw)
       }
 
-      function myfunction4() {       
+      function myfunction4() {
         document.querySelector('.counting-number').value++
+      }
+
+      function myfunction5() {
+        let imgsrc = document.querySelector('#chgImg').src.toString().split('-')
+        if(imgsrc[1] === '2.jpg') {
+          imgsrc[1].replace(document.querySelector('#chgImg').src = imgsrc[0] + '-3.jpg')
+        }else {
+          imgsrc[1].replace(document.querySelector('#chgImg').src = imgsrc[0] + '-2.jpg')
+        }
       }
   </script>
   </head>
@@ -127,6 +136,13 @@
         <p>
           <button type="button" id="btn4" onclick="myfunction4()">Count</button>
           <input type="text" class="counting-number">
+        </p>
+      </form>
+
+      <form action="">
+        <p>
+          <button type="button" id="btn5" onclick="myfunction5()">Change Image</button>
+          <img id="chgImg" src="../resource/img0718-2.jpg" alt="img1">
         </p>
       </form>
     </section>
