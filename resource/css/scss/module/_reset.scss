@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	// vertical-align: middle;
+    box-sizing: border-box;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+}
+html, body{
+	font-family: $sd;
+    font-weight: normal;
+    font-size: 16px;
+	line-height: 1;
+    letter-spacing: -0.02rem;
+    color: $white;
+    @include mobile{
+        font-size: 14px;
+    }
+}
+input, select, button, textarea{
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: 1;
+}
+select, button, input[type='submit']{
+    cursor: pointer;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+input[type='number']{
+    -moz-appearance: textfield;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a, a:link{
+	text-decoration: none;
+	color: inherit;
+    line-height: 1.2;
+}
+a,span,em,i,strong{
+    font-style: normal;
+    line-height: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+.h1, .h2, .h3, h1, h2, h3{
+    font-family: $sd;
+    margin: 0 ;
+    padding: 0;
+    line-height: 1.2;
+}
