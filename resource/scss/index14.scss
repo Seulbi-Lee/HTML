@@ -1,0 +1,13 @@
+@import "module/mixin";
+
+.flex-wrap {
+  @include theme($light-theme: true);
+  @include flex(center);
+
+  @include mobile {
+    color: $white;
+    background: $sand;
+    
+  }
+}
+

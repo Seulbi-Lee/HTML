@@ -1,0 +1,26 @@
+//color
+$border: #2d2d2d;
+$white: #efefef;
+$black: #222222;
+
+$yellow: #E3B678;
+$sand: #A17647;
+$brown: #473E32;
+$gray: #888888;
+$dgray: #111111;
+$grd: transparent linear-gradient(147deg, #e3b678 0%, #ae8450 45%, #e3b678 70%, #a17647 100%);
+
+// font family
+$sd: 'AppleSDGothicNeoR', 'AppleSDGothicNeoR', '맑은 고딕', 'Malgun Gothic', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+$sd-m: 'AppleSDGothicNeoM';
+$sd-b: 'AppleSDGothicNeoB';
+$sd-eb: 'AppleSDGothicNeoEB';
+$sd-sb: 'AppleSDGothicNeoSB';
+$robo: 'Roboto Regular';
+$robo-b: 'Roboto Bold';
+$robo-l: 'Roboto Light';
+
+//breakpoints
+$pc: 1280px;
+$mobile: 720px;
+$min-mobile: 375px;

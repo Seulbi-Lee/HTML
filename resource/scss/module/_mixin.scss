@@ -1,0 +1,231 @@
+// @use "sass:math";
+@import "variables";
+
+//media query
+@mixin pc {
+    @media screen and (min-width: #{$pc}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (min-width: #{$mobile}) and (max-width: #{$pc}){
+        @content;
+    }
+}
+@mixin mobile {
+    @media screen and (max-width: #{$pc}) {
+        @content;
+    }
+}
+@mixin minMobile {
+    @media screen and (max-width: #{$min-mobile}) {
+        @content;
+    }
+}
+
+//media only
+@mixin pcOnly{
+    @include mobile{ display: none; }
+}
+@mixin moOnly{
+    @include pc{ display: none; }
+}
+
+// 
+@mixin flex($value: (space-between)){
+  display: flex;
+  justify-content: $value;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($white, 100%);
+    color: darken($black, 100%);
+  }
+
+}
+
+//clear
+@mixin clear{
+    &::after{
+        content:'';
+        display:block;
+        clear:both;
+    }
+}
+
+//ellipsis
+@mixin ellipsis($value){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $value;
+    @if $value == 1{
+        white-space: nowrap;
+    }@else{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+}
+
+//prefix
+@mixin prefix($property, $value, $prefixes: (webkit)){
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+//virtual
+@mixin virtual($width, $height){
+    content: '';
+    display: block;
+    position: absolute;
+    width: $width;
+    height: $height;
+}
+
+// vw
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1);
+}
+@mixin vw($prop, $vlus) {
+	$px: ();
+	$vw: ();
+
+	@each $vlu in $vlus {
+		@if $vlu == 0 or $vlu == auto {
+			$px: append($px, $vlu);
+			$vw: append($vw, $vlu);
+		} @else {
+			$unit: unit($vlu);
+			$val: parseInt($vlu);
+
+			@if $unit == 'px' {
+				$px: append($px, $vlu);
+				$max-mobile: 375;
+				$vw-context: ($max-mobile * .01) * 1;
+				$vw: append($vw, (($val/$vw-context) * 1 + vw));
+			}
+
+			@if $unit == 'vw' {
+				$px: append($px, ($val * 16 + px));
+				$vw: append($vw, $vlu);
+			}
+		}
+	}
+
+	@if $px == $vw {
+		#{$prop}: $px;
+	} @else {
+		#{$prop}: $px;
+		@include minMobile(){
+			#{$prop}: $vw;
+		}
+	}
+}
+
+@function vh($target, $integral){
+    @return $target / $integral * 100 + vh;
+}
+@function vw($target, $integral){
+    @return $target / $integral * 100 + vw;
+}
+
+//icon-size
+@mixin ico16 {
+    width: 16px;
+    height: 16px;
+}
+@mixin ico20 {
+    width: 20px;
+    height: 20px;
+}
+@mixin ico24 {
+    width: 24px;
+    height: 24px;
+}
+@mixin ico30 {
+    width: 30px;
+    height: 30px;
+}
+
+//@button
+@mixin btn-def{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 3px;
+    color: $white;
+}
+@mixin btn-bg{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 3px;
+    background: $grd;
+    color: $white;
+}
+@mixin btn-r{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 16px;
+    font-size: 12px;
+    color: $white;
+}
+
+// flag
+@mixin flag-notice {
+    position: relative;
+    &::before{
+        position: absolute;
+        content: '공지사항';
+        margin-right: 8px;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 10px;
+        background-color: $brown;
+        color: $yellow;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+        transition: all .8s;
+    }
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all .8s;
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all .8s;
+    }
+}
