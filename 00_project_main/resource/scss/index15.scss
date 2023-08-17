@@ -1,0 +1,59 @@
+@import "module/mixin";
+
+:root {
+  --primary-color: grey;
+  --secondary-clolr: pink;
+}
+
+$primary-color: black;
+$secondary-color: white;
+$font-weight: (
+  "thin": 200,
+  "normal": 400,
+  "bold": 600
+);
+
+@function fontweight($weightname){
+  @return map-get($font-weight, $weightname);
+}
+
+@mixin font($size: 16px, $weight: 300){
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($white, 100%);
+    color: darken($black, 100%);
+  }
+}
+
+body {
+  background-color: var(--primary-color);
+  p {
+    color: $secondary-color;
+    width: 80%;
+    margin: 0 auto;
+    font-weight: fontweight(bold);
+  }
+  &.main {
+    background-color: var(--secondary-clolr);
+  
+    @include mobile {
+      background-color: var(--primary-color);
+    }
+  
+    &-body{
+      background-color: $primary-color;
+      @include theme(true);
+    }
+    &-child{
+      color: $primary-color;
+      @include font(30px, 600);
+    }
+  }
+}
+
+
+

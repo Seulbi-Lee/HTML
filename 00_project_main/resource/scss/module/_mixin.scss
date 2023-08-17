@@ -37,14 +37,6 @@
   justify-content: $value;
 }
 
-@mixin theme($light-theme: true) {
-  @if $light-theme {
-    background: lighten($white, 100%);
-    color: darken($black, 100%);
-  }
-
-}
-
 //clear
 @mixin clear{
     &::after{

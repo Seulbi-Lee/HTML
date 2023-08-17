@@ -1,0 +1,65 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+    transition: all 0.8s;
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.8s;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.8s;
+  }
+}
+:root {
+  --primary-color: grey;
+  --secondary-clolr: pink;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+body p {
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: 600;
+}
+body.main {
+  background-color: var(--secondary-clolr);
+}
+@media screen and (max-width: 1280px) {
+  body.main {
+    background-color: var(--primary-color);
+  }
+}
+body.main-body {
+  background-color: black;
+  background: white;
+  color: black;
+}
+body.main-child {
+  color: black;
+  font-size: 30px;
+  font-weight: 600;
+}
