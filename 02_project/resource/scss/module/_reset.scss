@@ -1,0 +1,48 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+  box-sizing: border-box;
+  appearance: none;
+  background: none;
+}
+html, body{
+	font-family: $primary;
+  font-weight: normal;
+  font-size: 16px;
+	line-height: 1;
+  letter-spacing: -0.02rem;
+  color: $color-text;
+  @include mobile{
+      font-size: 14px;
+  }
+}
+ol, ul {
+	list-style: none;
+}
+a, a:link{
+	text-decoration: none;
+	color: inherit;
+  line-height: 1.2;
+}
+a,span,em,i,strong{
+  font-style: normal;
+  line-height: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.h1, .h2, .h3, h1, h2, h3{
+  font-family: $title;
+  margin: 0 ;
+  padding: 0;
+  line-height: 1.2;
+}
+.hidden{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  color: transparent;
+}

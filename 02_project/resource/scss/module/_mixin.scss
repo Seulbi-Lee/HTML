@@ -1,0 +1,65 @@
+//color
+$color-border: #2d2d2d;
+$color-text: #fff;
+$color-background: #222222;
+$color-primary: #E3B678;
+$color-secondary: #A17647;
+$color-third: #473E32;
+$color-gray: #888888;
+$color-deap: #111111;
+$color-gradiant: transparent linear-gradient(147deg, #e3b678 0%, #ae8450 45%, #e3b678 70%, #a17647 100%);
+
+// font family
+$primary: 'AppleSDGothicNeoR',Sans-Serif;
+$title: 'Roboto Regular';
+
+//breakpoints
+$pc: 1280px;
+$mobile: 720px;
+$min-mobile: 375px;
+
+//media query
+@mixin pc {
+  @media screen and (min-width: #{$pc}) {
+      @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: #{$mobile}) and (max-width: #{$pc}){
+      @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: #{$pc}) {
+      @content;
+  }
+}
+@mixin minMobile {
+  @media screen and (max-width: #{$min-mobile}) {
+      @content;
+  }
+}
+
+// flex
+@mixin flex($val : (space-between)){
+  display: flex;
+  justify-content: $val;
+}
+
+// background image
+@mixin bg_img($val){
+  background-image: url('../img/'+ $val);
+  background-position: center;
+  background-size: cover;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

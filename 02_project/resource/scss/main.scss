@@ -1,0 +1,74 @@
+@import "module/mixin";
+@import "module/reset";
+@import "module/haeder";
+@import "module/footer";
+
+body{
+  background: $color-background;
+}
+
+.container{
+  z-index: 0;
+
+  &-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  
+    &.page01{
+      @include bg_img('img_main.jpg');
+    }
+    &.page02{
+      left: 100%;
+      background-color: $color-primary;
+    }
+    &.page03{
+      left: 200%;
+      background-color: $color-secondary;
+    }
+  }
+
+  &-inner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 24px 60px;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeInUp 1s;
+    h2{
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      em{
+        color: $color-primary;
+      }
+    }
+    p{
+      line-height: 1.6rem;
+    }
+
+    .row-2{
+      @include flex();
+      gap: 40px;
+
+      li{
+        width: 50%;
+
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .wide{
+    .container-inner{
+      max-width: 1000px;
+      width: 80%;
+    }
+  }
+}

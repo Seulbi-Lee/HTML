@@ -1,0 +1,28 @@
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &-container{
+    width: 100%;
+    height: 100px;
+    max-width: $pc;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    color: $color-text;
+
+    .icon{
+      margin-bottom: 20px;
+      .fa{
+        margin: 0 5px;
+        cursor: pointer;
+        
+        &:before {
+          font-size: 38px;
+        }
+      }
+    }
+  }
+}
