@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+    <style>
+      .popup-wrap{
+        position: absolute;
+        height: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 0;
+        margin: 0;
+        z-index: -999;
+        opacity: 0;
+        transition: opacity .5s;
+      }
+      .popup-wrap.active{
+        height: 100%;
+        z-index: 1;
+        opacity: 1;
+      }
+      .popup-wrap::before{
+        content:'';
+        display: block;
+        position: absolute;
+        height: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.2);
+        z-index: -999;
+      }
+      .popup-wrap.active::before{
+        height: 100%;
+        z-index: -5;
+      }
+      .popup-layer {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        transform: translateY(-100%);
+        top: 0%;
+        width: 500px;
+        height: 200px;
+        padding: 20px 40px;
+        border-radius: 5px;
+        background-color: #fff;
+        z-index: 5;
+        transition: top .5s;
+      }
+      .popup-wrap.active .popup-layer{
+        top: 40%;
+      }
+      .info-text{
+        font-size: 20px;
+        text-align: center;
+      }
+      .close-btn{
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgb(108, 135, 255);
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+        transition: all .2s;
+      }
+      .close-btn:hover{
+        box-shadow: 2px 5px 5px rgba(0,0,0,0.2);
+      }
+      .btn-wrap{
+        text-align: center;
+      }
+      .submit{
+        width: 120px;
+        height: 34px;
+        font-size: 16px;
+        border: 0;
+        border-radius: 3px;
+        background-color: rgb(108, 135, 255);
+        color: #fff;
+        cursor: pointer;
+        transition: all .2s;
+      }
+      .submit:hover{
+        box-shadow: 2px 5px 5px rgba(0,0,0,0.2);
+      }
+    </style>
+  </head>
+  <body>
+
+    <p class="btn-wrap">
+      <button type="button" class="submit" onclick="popOpen()">Submit</button>
+    </p>
+ 
+    <div class="popup-wrap" id="popup">
+      <div class="popup-layer">
+        <p class="info-text">"Thank you, your information is recorded"</p>
+        <button type="button" class="close-btn" onclick="popClose()">X</button>
+      </div>
+    </div>
+
+
+    <script>
+      let popup = document.getElementById('popup')
+
+      const popOpen = function(){
+        popup.classList.add('active')
+      }
+
+      const popClose = function(){
+        popup.classList.remove('active')
+      }
+    </script>
+  </body>
+</html>

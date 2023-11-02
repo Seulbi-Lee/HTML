@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practising SCSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // document.addEventListener("keypress", myfunction2);
+      // document.addEventListener("keyup", myfunction3);
+      // document.addEventListener("mousedown", myfunction4);
+      // document.addEventListener("focusin", myfunction5);
+      // document.addEventListener("focusout", myfunction6);
+
+      function myfunction(){
+        document.getElementById('demo').innerHTML = document.URL;
+      }
+      // function myfunction2(){
+      //   document.getElementById('demo').innerHTML = "Key pressed!";
+      // }
+      // function myfunction3(){
+      //   document.getElementById('demo').innerHTML = "Key released!";
+      // }
+      // function myfunction4(){
+      //   document.getElementById('demo').innerHTML = "Mouse Down!";
+      // }
+      // function myfunction5(){
+      //   document.getElementById('demo').innerHTML = "Focus in!";
+      // }
+      // function myfunction6(){
+      //   document.getElementById('demo').innerHTML = "Focus out!";
+      // }
+
+      let a = -10
+      let b = -11
+      let c = 2
+
+      let mult = a*b*c
+
+      if(mult < 0){
+        document.write('nagative')
+      }else{
+        document.write('positive')
+      }
+
+      let arr = [a,b,c].sort((a,b) => (a - b))
+      document.write("<br>"+arr+"<br>");
+
+      if((a>b) && (a>c)){
+        if(b>c){
+          document.write(c+','+b+','+a)
+        }else{
+          document.write(b+','+c+','+a)
+        }
+      }else if((b>a) && (b>c)){
+        if(b>c){
+          document.write(c+','+a+','+b)
+        }else{
+          document.write(b+','+c+','+a)
+        }
+      }else{
+        if(b>c){
+          document.write(c+','+a+','+b)
+        }else{
+          document.write(a+','+c+','+b)
+        }
+      }
+
+
+      function myfunction7(){
+        document.getElementById('demo2').innerHTML = document.getElementsByTagName('a').length;
+      }
+
+  </script>
+  </head>
+  <body>
+    <!--
+    <div class="container-fluid">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae neque aliquid repellendus sapiente totam minus velit eum saepe ex quis sed, eaque molestias, in, consequatur natus recusandae dignissimos modi eos?</p>
+      <div class="row">
+        <div class="col-sm-3" style="background-color: yellow;">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga architecto esse laborum fugit eaque distinctio est molestias pariatur officiis sint sunt asperiores libero dignissimos voluptates id facilis, minima, hic quod possimus voluptate corrupti soluta aliquam illo? Nesciunt omnis earum asperiores eligendi. Laborum, repellendus. Officia sapiente amet tempore praesentium adipisci maxime aut odit eaque obcaecati error similique quae, alias dolores.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga architecto esse laborum fugit eaque distinctio est molestias pariatur officiis sint sunt asperiores libero dignissimos voluptates id facilis, minima, hic quod possimus voluptate corrupti soluta aliquam illo? Nesciunt omnis earum asperiores eligendi. Laborum, repellendus. Officia sapiente amet tempore praesentium adipisci maxime aut odit eaque obcaecati error similique quae, alias dolores.</p>
+        </div>
+
+        <div class="col-sm-3" style="background-color: green;">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto dolores placeat beatae optio nobis omnis reiciendis praesentium consequuntur natus nesciunt corporis corrupti voluptatum vel a distinctio fuga sunt, commodi saepe.</p>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div class="col-sm-3" style="background-color: yellow;">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto dolores placeat beatae optio nobis omnis reiciendis praesentium consequuntur natus nesciunt corporis corrupti voluptatum vel a distinctio fuga sunt, commodi saepe.</p>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div class="col-sm-3" style="background-color: green;">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto dolores placeat beatae optio nobis omnis reiciendis praesentium consequuntur natus nesciunt corporis corrupti voluptatum vel a distinctio fuga sunt, commodi saepe.</p>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur rem, ipsam possimus libero voluptatum, aut ratione repellat omnis, recusandae maiores similique. Non debitis corporis, a impedit sunt at totam voluptate!</p>
+    <p id="demo"></p>
+    <button class="btn-info" onclick="myfunction()">Click Me</button>
+
+    <a href="#">HTML</a>
+    <a href="#">CSS</a>
+    <a href="#">JS</a>
+
+    <p id="demo2"></p>
+    <button class="btn-info" onclick="myfunction7()">Click Me</button>
+
+  </body>
+</html>

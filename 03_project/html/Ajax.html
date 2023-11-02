@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>product Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">Total invoice</td>
+        <td colspan="2"></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+<script type="module">  // import를 쓸 때는 type="module"을 써줘야함
+  import product from './classes/productClass.js'
+  let products = new Array()
+  let sum = 0
+  
+  const tablePop = () =>{
+    for(let pr of products){
+      let tr = document.createElement('tr')
+      for(let prop in pr){
+        let td = document.createElement('td')
+        td.innerText = pr[prop]
+        tr.append(td)
+      }
+      let td = document.createElement('td')
+      td.innerText = pr.total()
+      tr.append(td)
+      document.querySelector('tbody').append(tr)
+      
+      sum += pr.total()
+    }
+    document.querySelectorAll('tfoot tr td')[1].innerText = sum
+  }
+
+  // ajax는 아래 세가지 스탭이 기본
+  const httpReq = new XMLHttpRequest()
+  // httpReq.onreadystatechange = function(){  // handler
+  //   if(this.readyState === 4 && this.status === 200){
+  //     console.log(this.Response) // this와 Response는 arrow function 에서는 사용 할 수 없다
+  //   }
+  // }
+  httpReq.onload = ()=> {
+    // create an array of product objects using the httpReq.response
+    for (let pr of JSON.parse(httpReq.response)) {
+      let productObj = new product(pr.id, pr.pname, pr.price, pr.amount)
+      products.push(productObj)
+    }
+    tablePop()
+  }
+  httpReq.open('GET', 'invoice.json', true)
+  httpReq.send()
+
+
+  // 0 - creating the request
+  // 1 - esrvr connection
+  // 2 - request reciv
+  // 3 - 
+  // 4 - 
+
+</script>
+</html>

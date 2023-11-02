@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // for (let i = 0; i < numbers.length; i++) {
+  //   for (let j = 0; j < numbers.length; j++) {
+  //     if(numbers[i] > numbers[j]){
+  //       let tmp = numbers[i]
+  //       numbers[i] = numbers[j]
+  //       numbers[j] = tmp
+  //     }
+  //   }
+  // }
+
+  // write a function which accepts 2 parameters as follow
+  // arr (to get an array)
+  // order (to get the type of sort order [0,1] 0 = Accending and 1 = Decending) Can be optional
+  // This function shall sort the array using a new array and return the array to the main caller.
+  const numbers = [10, 5, 3, 4, 7, 20, 1, 0, 12]
+  function arrSort(arr, order=0){
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        if(order === 0){
+          if(arr[i] > arr[j]){
+            let tmp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = tmp
+          }
+        }else if(order === 1){
+          if(arr[i] < arr[j]){
+            let tmp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = tmp
+          }
+        }
+      }
+    }
+    return arr
+  }
+  console.log(arrSort(numbers))
+  console.log(arrSort(numbers, 1))
+
+
+  function arrSortCase(arr, order=0){
+    switch (order) {
+      case 0:
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if(arr[i] > arr[j]){
+              let tmp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = tmp
+            }
+          }
+        }
+      break;
+    
+      case 1:
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if(arr[i] < arr[j]){
+              let tmp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = tmp
+            }
+          }
+        }
+      break;
+    }
+    return arr
+  }
+  console.log(arrSortCase(numbers))
+  console.log(arrSortCase(numbers, 1))
+
+  // multi-dimension array
+  const sudoku = [1,2,3,4,5,6,7,8,9]
+  for (let i = 0; i < sudoku.length; i++) {
+
+  }
+  students[1][2]
+
+</script>
+</html>
