@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>product name</th>
+        <th>price</th>
+        <th>amount</th>
+        <th>button</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>total</td>
+        <td colspan="3"></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+<script type="module">
+  // import invoiceClass
+  import invoiceClass from './classes/invoiceClass.js';
+
+  // setting initial array variable invoiceList is null
+  let invoiceList = null;
+
+  // create the table constructor
+  const tablePop = ()=>{
+    for(let invoice of invoiceList){
+      let tr = document.createElement('tr');
+      tr.innerHTML = `
+      <td>${invoice.pname}</td>
+      <td>${invoice.price}</td>
+      <td>${invoice.amount}</td>
+      <td>
+        <button type="button">select</button>
+      </td>
+      `
+      document.querySelector('tbody').append(tr);
+    }
+  }
+
+  // set JSON
+  // request invoiceJSON
+  const httpReq = new XMLHttpRequest();
+  // event handler
+  httpReq.onload = ()=>{
+    if(httpReq.status === 200){ // The HTTP 200 is success response code
+      invoiceList = JSON.parse(httpReq.response);
+      tablePop()
+    }
+  }
+  // get json
+  httpReq.open('GET', 'invoice.json', true);
+  httpReq.send();
+</script>
+</html>

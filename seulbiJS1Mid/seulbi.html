@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- for alert -->
+  <button type="button">alert</button>
+  <br>
+
+  <!-- input-->
+  <input type="text">
+  <br>
+
+  <!-- button -->
+  <button type="button">over 10 years</button>
+  <button type="button">married</button>
+  <button type="button">has childern</button>
+
+  <!-- employee table -->
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Employee id</th>
+        <th>Name</th>
+        <th>Employee years</th>
+        <th>Married</th>
+        <th>Children</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</body>
+<script type="module">
+// 1
+  // create an object with my name as its my name
+  const seulbi = {
+    'firstName': 'Seulbi',
+    'lastName': 'Lee',
+    'countryName': 'Korea',
+    'favoriteFood': 'rice',
+  }
+  // when click the button, alert object
+  document.querySelectorAll('button')[0].addEventListener('click',()=>{
+    let sb = '';
+    for(let item in seulbi){
+      sb += ` ${item} : ${seulbi[item]} `
+    }
+    alert(sb)
+  });
+
+// 2
+  // when click innput text
+  const input = document.querySelectorAll('input')[0];
+  input.addEventListener('click', ()=>{
+    input.style.backgroundColor = 'yellow';
+  });
+
+// 3 ~ 6
+  // get the class 'employeeClass'
+  import employee from './class/employeeClass.js';
+  // set initial value of the employee array
+  let employeeList = null;
+
+  // create table
+  const tablePop = ()=>{
+    for(let employee of employeeList){
+      let tr = document.createElement('tr');
+      
+      let salary = 40000;
+      // based 40,000
+      // more than 4 year = based * 0.1
+      // married = based * 0.15
+      // have children = based * 0.15
+      if(employee.empyear > 4){
+        salary += salary * 0.1
+      }
+      if(employee.maried === true){
+        salary += salary * 0.15
+      }
+      if(employee.children === true){
+        salary += salary * 0.15
+      }
+
+      tr.innerHTML = `
+      <td>${employee.empid}</td>
+      <td>${employee.first_name} ${employee.last_name}</td>
+      <td>${employee.empyear}</td>
+      <td>${employee.maried}</td>
+      <td>${employee.children}</td>
+      <td>$${salary}</td>
+      `
+      document.querySelector('tbody').append(tr)
+    }
+  }
+
+
+  // button event
+  const btnEvent = ()=>{
+    let btnYear = document.querySelectorAll('button')[1];
+    let btnMarried = document.querySelectorAll('button')[2];
+    let btnChildren = document.querySelectorAll('button')[3];
+    let tr = document.querySelectorAll('tbody tr');
+
+    // if the event is same with target, chagne the background color of tr
+    const event = (e)=>{
+      for(let i = 0; i< employeeList.length; i++){
+        tr[i].style.backgroundColor = '#fff'
+
+        if(e.target === btnYear && employeeList[i].empyear >= 10){
+          tr[i].style.backgroundColor = 'yellow'
+        }
+        if(e.target === btnMarried && employeeList[i].maried === true){
+          tr[i].style.backgroundColor = 'yellow'
+        }
+        if(e.target === btnChildren && employeeList[i].children === true){
+          tr[i].style.backgroundColor = 'yellow'
+        }
+      }
+    }
+
+    btnYear.addEventListener('click', event);
+    btnMarried.addEventListener('click', event);
+    btnChildren.addEventListener('click', event);
+  }
+
+  // request json
+  const httpReq = new XMLHttpRequest();
+  // handler
+  httpReq.onload = ()=>{
+    if(httpReq.status === 200){
+      // store the contents of json file in the employeeList array
+      employeeList = JSON.parse(httpReq.response)
+      tablePop();
+      btnEvent();
+    }
+  }
+  // get json
+  httpReq.open('GET', 'emplistV3.json', true);
+  httpReq.send();
+  
+  
+</script>
+</html>

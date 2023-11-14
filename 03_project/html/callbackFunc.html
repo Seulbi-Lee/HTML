@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>callback function</title>
+</head>
+<body>
+  <ul>
+
+  </ul>
+</body>
+<script>
+  const listDisplay = (friendName) => {
+    for (const item of friendName) {
+      let li = document.createElement('li');
+      li.innerText = item;
+      document.querySelector('ul').append(li);
+    }
+  }
+  const myfriend = (sh) => {
+    let friends = ['a','b','c','d','e'];
+    sh(friends);
+  }
+  myfriend(listDisplay);
+
+  // const showMsg = (message) => {
+  //   alert(message);
+  // }
+  // const multiFunc = (num1, num2, callbackFunc) => {
+  //   callbackFunc(num1 * num2);
+  // }
+  // multiFunc(10, 2, showMsg);
+</script>
+</html>

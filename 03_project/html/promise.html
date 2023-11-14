@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise</title>
+</head>
+<body>
+  <input type="text">
+  <input type="number">
+  <button type="button">add student</button>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>Student Name</td>
+        <td>mark</td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>average of the class:</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+<script>
+  // when user clicked on the add student button, using a promise adject get the student name and mark from the input box and add it to the table. you need to calculate the average of the class at the same time.
+  // If name is empty or mark is zero, change the background color of the empty input elements and show an alert message.
+  const createFunc = (name, num) =>{
+    let tr = document.createElement('tr')
+      tr.innerHTML =`
+      <td>${name}</td>
+      <td>${num}</td>
+      `
+      document.querySelector('tbody').tr
+  }
+  const emptyFunc = (message)=>{
+    alert(message)
+  }
+  const clickHandler = ()=>{
+    let promObj = new Promise((stdFun, emtyFun)=>{
+      let student = document.querySelectorAll[0].value;
+      let mark = document.querySelectorAll[1].value;
+
+      if(student != 0 && mark != 0){
+        
+      }else{
+      }
+      createFunc(student, mark)
+    })
+  }
+  document.querySelector('button').addEventListener('click', clickHandler)
+  /*
+  const resultFunc = (result) => {
+    document.querySelector('h2').innerText += result;
+  }
+  const rejFunc = (reason) => {
+    alert(reason);
+  }
+  const clickHandler = () => {
+    let promiseObj = new Promise((resFun, rejFun) => {
+      let num1 = document.querySelectorAll('input')[0].value;
+      let num2 = document.querySelectorAll('input')[1].value;
+
+      if(num2 != 0){
+        resFun(num1/ num2);
+      }else{
+        rejFun('second number shall not be zero.');
+      }
+    }).then(resultFunc, rejFunc);
+  }
+  
+  document.querySelector('button').addEventListener('click', clickHandler);
+  */
+</script>
+</html>
