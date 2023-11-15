@@ -56,9 +56,12 @@
 // 2
   // when click innput text
   const input = document.querySelectorAll('input')[0];
-  input.addEventListener('click', ()=>{
+  input.addEventListener('focus', ()=>{
     input.style.backgroundColor = 'yellow';
-  });
+  })
+  input.addEventListener('blur', ()=>{
+    input.style.backgroundColor = 'transparent';
+  })
 
 // 3 ~ 6
   // get the class 'employeeClass'
@@ -72,32 +75,48 @@
       let tr = document.createElement('tr');
       
       let salary = 40000;
+      let based = salary;
       // based 40,000
       // more than 4 year = based * 0.1
       // married = based * 0.15
       // have children = based * 0.15
       if(employee.empyear > 4){
-        salary += salary * 0.1
+        salary += based * 0.1
       }
       if(employee.maried === true){
-        salary += salary * 0.15
+        salary += based * 0.15
       }
       if(employee.children === true){
-        salary += salary * 0.15
+        salary += based * 0.15
+      }
+
+      // if married is true return yes otherwise no
+      let married = employee.maried;
+      if(married){
+        married = 'yes'
+      }else{
+        married = 'no'
+      }
+
+      // if having children is true return yes otherwise no
+      let children = employee.children;
+      if(children){
+        children = 'yse'
+      }else{
+        children = 'no'
       }
 
       tr.innerHTML = `
       <td>${employee.empid}</td>
       <td>${employee.first_name} ${employee.last_name}</td>
       <td>${employee.empyear}</td>
-      <td>${employee.maried}</td>
-      <td>${employee.children}</td>
+      <td>${married}</td>
+      <td>${children}</td>
       <td>$${salary}</td>
       `
       document.querySelector('tbody').append(tr)
     }
   }
-
 
   // button event
   const btnEvent = ()=>{
@@ -106,26 +125,25 @@
     let btnChildren = document.querySelectorAll('button')[3];
     let tr = document.querySelectorAll('tbody tr');
 
-    // if the event is same with target, chagne the background color of tr
+    // if the event is same with target, change the background color of tr
     const event = (e)=>{
       for(let i = 0; i< employeeList.length; i++){
-        tr[i].style.backgroundColor = '#fff'
+        tr[i].style.backgroundColor = '';
 
         if(e.target === btnYear && employeeList[i].empyear >= 10){
           tr[i].style.backgroundColor = 'yellow'
-        }
-        if(e.target === btnMarried && employeeList[i].maried === true){
-          tr[i].style.backgroundColor = 'yellow'
-        }
-        if(e.target === btnChildren && employeeList[i].children === true){
-          tr[i].style.backgroundColor = 'yellow'
+        }else if(e.target === btnMarried && employeeList[i].maried === true){
+          tr[i].style.backgroundColor = 'lightgreen'
+        }else if(e.target === btnChildren && employeeList[i].children === true){
+          tr[i].style.backgroundColor = 'pink'
         }
       }
     }
-
+    
     btnYear.addEventListener('click', event);
     btnMarried.addEventListener('click', event);
     btnChildren.addEventListener('click', event);
+    document.addEventListener('click', event);
   }
 
   // request json
@@ -135,14 +153,14 @@
     if(httpReq.status === 200){
       // store the contents of json file in the employeeList array
       employeeList = JSON.parse(httpReq.response)
-      tablePop();
+
+      tablePop();ㄴ
       btnEvent();
     }
   }
   // get json
   httpReq.open('GET', 'emplistV3.json', true);
   httpReq.send();
-  
   
 </script>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>h1</h1>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+  <input>
+</body>
+<script>
+  // console.log($('h1').text()) // using jquery html get method
+  // $('h1').text('Hi') // using jquery html set method
+  // $($('input')[1]).val('test')
+  // $('input').css('background-color','yellow')
+
+  // const clickHandler = (e)=>{
+  //   console.log(e)
+  // }
+  // $('input').on({
+  //   keypress: clickHandler,
+  //   click: clickHandler
+  // })
+
+  const focusHandler = (e)=>{
+    // $(e.target).parent().children('input').last().val('0') // go to the last child
+    // console.log($(e.target).next('input'))   // next
+    // console.log($('input').eq(0))  // index
+    if(e.type ==='focus'){
+      $(e.target).css('background-color', 'yellow')
+    }else if(e.type === 'blur'){
+      $(e.target).css('background-color', '')
+    }
+  }
+  $('input').on({
+    focus: focusHandler,
+    blur: focusHandler
+  })
+
+  
+</script>
+</html>

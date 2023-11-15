@@ -44,8 +44,9 @@
     // console.log(document.querySelectorAll("div")[0].nextElementSibling);
     // console.log(document.querySelectorAll("div")[1].previousElementSibling);
     let selectedItem = null;
+    let btns = document.querySelectorAll('button')
     const btDisable = () =>{
-        for(let i of [1,2,3]){
+        for(let i of btns.length){
             document.querySelectorAll("button")[i].setAttribute("disabled","");
         }
     }
