@@ -131,8 +131,33 @@
     <span class="dot"></span>
   </div>  
 </body>
-
 <script>
+  // get a first image
+  let activeImg = $('.mySlides').first()
+  
+  // function for change to the next image
+  const changeImg = (nextImg)=>{
+    activeImg.css('display', 'none')  // hide the active image
+    nextImg.css('display', 'block')   // show the next imgage
+    activeImg = nextImg               // change next image to active image
+  }
+  // initial function execute
+  changeImg(activeImg)
 
+  // function for change image to next or prev
+  const eventHandler = (e)=>{
+    if($(e.target).hasClass('prev')){
+      changeImg(
+        activeImg[0] === $('.mySlides').first()[0] ? $('.mySlides').last() : activeImg.prev()
+      )
+    }else if($(e.target).hasClass('next')){
+      changeImg(
+        activeImg[0] === $('.mySlides').last()[0] ? $('.mySlides').first() : activeImg.next()
+      )
+    }
+  }
+
+  // execute event whent click the buttons
+  $('.slideshow-container a').on('click', eventHandler)
 </script>
 </html>

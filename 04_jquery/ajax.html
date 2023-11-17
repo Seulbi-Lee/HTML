@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    tr:hover{
+      background-color: aquamarine;
+    }
+    tr.active{
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button type="button">delete</button>
+    <button type="button">up</button>
+    <button type="button">down</button>
+    <button type="button">add</button>
+  </header>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>amount</th>
+        <th>total</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">total</td>
+        <td colspan="3" class="total-price"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+
+</body>
+<script>
+  class invoice {
+    constructor(id, pname, price, amount){
+      this.id = id;
+      this.pname = pname;
+      this.price = price;
+      this.amount = amount;
+    }
+  }
+
+  let invoiveObj = null;
+  let totalPrice = 0;
+  
+  const createTable = (value)=>{
+    let tr = $('<tr></tr>')
+    $('tbody').append(tr)
+    tr.append(`
+    <td>${value.id}</td>
+    <td>${value.pname}</td>
+    <td>${value.price}</td>
+    <td>${value.amount}</td>
+    <td></td>
+    `)
+  }
+
+  const selectTr = (e)=>{
+    $('header button').prop('disabled', false)
+
+    if(e.shiftKey){
+      $(e.target).parent().addClass('active')
+    }else{
+      $(e.target).parent().addClass('active').siblings().removeClass('active')
+    }
+  }
+
+  const btnEvent = (e)=>{
+    let currentTr = $('tbody tr.active')
+    switch($(e.target).text()){
+      case 'delete':
+        currentTr.remove()
+        if(totalPrice !== 0){
+          totalPrice;
+        }
+        if(currentTr.hasClass('added')){
+          totalPrice -= +currentTr.children().eq(2).text()
+        }else{
+          totalPrice;
+        }
+        $('.total-price').text(totalPrice.toFixed(2))
+        break;
+      case 'up':
+        currentTr.prev().before(currentTr)
+        break;
+      case 'down':
+        currentTr.next().after(currentTr)
+        break;
+      case 'add':
+        currentTr.addClass('added')
+        totalPrice += +currentTr.children().eq(2).text()
+        $('.total-price').text(totalPrice.toFixed(2))
+        break;
+    }
+  }
+  
+  $.getJSON('./invoice.json', (result)=>{
+    $.each(result, (idx, value)=>{
+      invoiveObj = new invoice(value.id, value.pname, value.price, value.amount)
+      createTable(invoiveObj)
+    })
+
+    $('header button').prop('disabled', true)
+    $('tr').on('click', selectTr)
+    $('button').on('click', btnEvent)
+  })
+
+
+</script>
+</html>

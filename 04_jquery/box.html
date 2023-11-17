@@ -5,11 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>box</title>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    .box{
+        background-color: azure;
+        border: 1px solid blue;
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: xx-large;
+        text-align: center;
+    }
+    .box:hover{
+        cursor: pointer;
+        background-color: aquamarine;
+    }
+    .active{
+        background-color: blue;
+        color: white;
+    }
+  </style>
 </head>
 <body>
-  
+  <header>
+    <button type="button">add</button>
+    <button type="button">remove</button>
+    <button type="button">up</button>
+    <button type="button">down</button>
+  </header>
+  <section>
+
+  </section>
 </body>
 <script>
+  let count = 0
 
+  const selectBox = (e)=>{
+    $(e.target).addClass('active').siblings().removeClass('active')
+    $('button').prop('disabled', false)
+  }
+
+  const addBox = ()=>{
+    $('section').children().length === 0 ? count = 1 : count++
+    $('section').append(`<div class="box">${count}</div>`)
+    $('.box').on('click', selectBox)
+  }
+
+  const removeBox = ()=>{
+   $('.box.active').remove()
+  }
+
+  const moveHandler = (e)=>{
+    let currentBox = $('.box.active')
+    switch($(e.target).text()){
+      case 'up':
+        if(currentBox[0] === $('.box').first()[0]){
+          $('.box').last().after(currentBox)
+        }else{
+          currentBox.prev().before(currentBox)
+        }
+      break;
+      case 'down':
+        if(currentBox[0] === $('.box').last()[0]){
+          $('.box').first().before(currentBox)
+        }else{
+          currentBox.next().after(currentBox)
+        }
+      break;
+    }
+  }
+  
+  $('button').eq(0).prop('disabled', false).siblings().prop('disabled', true)
+  $('button').eq(0).on('click', addBox)
+  $('button').eq(1).on('click', removeBox)
+  $('button').eq(2).on('click', moveHandler)
+  $('button').eq(3).on('click', moveHandler)
 </script>
 </html>
