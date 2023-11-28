@@ -1,16 +1,15 @@
-class invoice {
+class Product {
   constructor(id, pname, price){
     this.id = id;
     this.pname = pname;
     this.price = price;
   }
   toRow(){
-    let tr = $('<tr></tr>')
-    tr.append(`
-    <td>${value.id}</td>
-    <td>${value.pname}</td>
-    <td>${value.price}</td>
-    `)
+    const tr = $('<tr class="table-primary"></tr>');
+    $.each(this,(_, value)=>{
+      tr.append($(`<td>${value}</td>`))
+    })
+    return tr;
   }
 }
-export default invoice;
+export default Product;

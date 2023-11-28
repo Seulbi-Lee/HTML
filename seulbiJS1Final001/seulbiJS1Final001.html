@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form action="">
+    <input type="text" placeholder="first name" value="">
+    <input type="text" placeholder="family name" value="">
+    <button type="submit">Submit</button>
+  </form>
+  <main></main>
+
+  <h1></h1>
+
+  <table class="student-list" border ="1">
+    <thead>
+      <tr>
+        <th>student ID</th>
+        <th>Name</th>
+        <th>Final Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+  </table>
+</body>
+<script>
+  //------- 1,2,3 --------
+  // input name
+  $('form').on('submit',(e)=>{
+    e.preventDefault();
+    let firstName = $('input[type="text"]').eq(0).val();
+    let familyName = $('input[type="text"]').eq(1).val();
+    let fullName = `${firstName} ${familyName}`
+
+    // check the same name
+    let nameBox = $('main div')
+    // if the length of nameBox is 0, put the code in the box
+    if(nameBox.length == 0){
+      $('main').append(`<div>${fullName}</div>`)
+      $('main').append($('<button type="button">Save</button>'))  // add Save button
+    }else{  // if the length of nameBox is mort than 1
+      for(let name of nameBox){
+        if(fullName == $(name).text()){
+          alert('The name has already added')
+        }else{
+          $('main').append(`<div>${fullName}</div>`)
+        }
+      }
+    }
+  })
+  
+
+  //------- 4,5 ---------
+
+  let students = [];
+
+  // create table
+  const createTable = (studentList)=>{
+    // setting initial values
+    let ave = 0;
+    let best = 0;
+    let low = Infinity;
+
+    $.each(studentList, (_, std)=>{
+      // create tr and put the student's id, name, grade in td
+      let tr = $('<tr></tr>')
+      tr.append(`               
+      <td>${std.studentID}</td>
+      <td>${std.first_name} ${std.last_name}</td>
+      <td>${std.final_grade}</td>
+      `)
+      $('.student-list').append(tr)
+
+      ave += std.final_grade                  // add all the grades for average
+      best = Math.max(best, std.final_grade)  // find max value compare between previous grade and current grade
+      low = Math.min(low, std.final_grade)    // find min value compare between previous grade and current grade
+    })
+
+    $('h1').text(`Average: ${(ave/studentList.length).toFixed(2)}, Bast: ${best}, Low: ${low}`)   // put value of average, best, low in the h1 tag 
+  }
+
+  // create promise
+  const promisStu = new Promise((res, rej)=>{
+    // get student.json
+    $.getJSON('./data/students.json', (data, status, xhr)=>{
+      if(status === 'success'){         // if the status is success
+        $.each(data, (ind, el)=>{
+          students.push(el)             // push the elements inside the array'students'
+        })
+        res(students)
+      }else{                            // if ths status is not success
+        rej(status)
+      }
+    })
+  }).then(
+    createTable ,             // excute when the promis is fulfilled
+    (error)=>{alert(error)}   // excute when the promis is not fulfilled
+  )
+
+</script>
+</html>

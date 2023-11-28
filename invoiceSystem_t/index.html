@@ -21,6 +21,7 @@
     </style>
 </head>
 <body>
+    <header></header>
     <div class="container-fluid">
         <div class="mt-1 row justify-content-center align-items-center g-2">
             <div class="col-6      ">
@@ -30,6 +31,11 @@
                     <button type="button" class="btn btn-outline-danger" disabled>Delete</button>
                 <button type="button" class="btn btn-outline-primary" disabled>UP</button>
                 <button type="button" class="btn btn-outline-primary" disabled>DOWN</button>
+                <button type="button" class="btn btn-outline-danger" >Logout</button>
+                <button type="button" class="btn btn-outline-success" disabled >PAY</button>
+                <button type="button" class="btn btn-outline-warning" >List of Employees</button>
+
+                
             </div>
         </div>
         <div class="mt-2 row justify-content-center align-items-start g-2">
@@ -101,6 +107,19 @@
 <script type="module">
     import Product from './class/productClass.js';
     import item from './class/cartItem.js';
+    import User from './class/User.js';
+    let UserObj = null;
+    if(sessionStorage.getItem("lu")==undefined){
+        location.replace("./login.html");
+    }else{
+        let tmpUser = JSON.parse(sessionStorage.getItem("lu"));
+        let UserObj = new User(tmpUser.empid,tmpUser.fname,tmpUser.lname,tmpUser.uname);
+        $(".container-fluid").prepend(UserObj.toDisplay());
+    }
+    $("button").eq(3).on("click",()=>{
+        sessionStorage.removeItem("lu");
+        location.replace("./login.html");
+    })
     const productList = [];
     const itemCollection = [];
     let selectedTr = [];
